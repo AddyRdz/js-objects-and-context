@@ -172,7 +172,7 @@ Object.entries(car)
 Create two separate car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add addition attributes that include at least one array and object.  
 
 <details>
-  <summary>Possible Solution</solution>
+  <summary>Possible Solution</summary>
 
 ```js
 const car = {
@@ -196,6 +196,7 @@ const car = {
 **Q** In the above examples, how do we access...
 * "Neutral" (i.e., array value within an object)?
 * "6 horses" (i.e., object value within an object)?
+
 </details>
 
 ## Methods
