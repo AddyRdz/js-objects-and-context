@@ -15,13 +15,13 @@
 - Explain what the default context of Javascript executing in the browser is
 - Use the 'this' keyword to set and retrieve a property on an object
 
-## Framing (5 min / 0:05)
+## Framing
 
 This lesson will cover two concepts that are crucial for encapsulation and abstraction in Javascript: Objects and Context. Objects allow us to box up multiple functions and data under a single variable. Context determines which object "owns" a function while it's being invoked.
 
 Today we will explore why we might want to use objects in our code, and learn how to create, access, and alter objects. With context, we'll see how all function invocations are always attached to an object which we can access via the keyword `this`.  We'll learn how to use `this` on our own objects and how to alter the context of `this`.  
 
-## Intro to Objects (5 min / 0:10)
+## Objects in Review
 
 Let's visit a site most of you will probably be familiar with, [Amazon](https://www.amazon.com). If we type something to search for, you may notice all the results have similar properties. Things like, *price*, *title*, *reviews*, *Prime eligibility* and a *picture*.
 
@@ -33,7 +33,7 @@ In JavaScript, **objects are collections of properties(key-value pairs)**. We ca
 let car = {
   make: 'Honda',
   model: 'Civic',
-  year: 1997      // Don't add a comma after the last pair!
+  year: 1997      // Generally, there's no comma after the last pair!
 }
 ```
 
@@ -56,16 +56,16 @@ let car = ['Honda', 'Civic', 1997]
 
 What advantages might there be in storing `car` as an object?
 
-### You Do: Model WDI Student (5 min / 0:15)
+### You Do: Model an SEI Course
 
 Your goal is to code an object literal:
 
-* In pairs, spend 2 minutes thinking about what attributes a WDI student should have (think of at least 5!).
-* Take 3 minutes to construct your object literal with appropriate key value pairs by drawing it on the table or in your code editor.
+* In groups, work together to identify the attributes of the SEI program.
+* Take a few minutes to construct your object literal with appropriate key value pairs.
 * **Bonus - One key value pair contains an array**
 * **Double bonus - one key value pair contains another object**
 
-### Interacting with Objects (15 min / 0:30)
+### Interacting with Objects
 
 #### Create
 
@@ -81,21 +81,16 @@ let car = {
   // NOTE: You should use camelCase in JS, but sometimes you need to work with hyphens in JSON objects, if they were generated from a non-JavaScript API.
 }
 ```
-
-ASIDE: Another way of creating objects is to use the **Object Constructor method** (`let myObj = new Object()`)
+Another way is to use the `Object.create()` method.
 
 ```js
-let car = new Object()
+let car = Object.create()
 
 // then you can populate the object
 car.make = 'Honda',
 car.model = 'Civic',
 car.year = 1997
 ```
-
-> What do you think the function is for creating a new Array, String, or Number?
-
-We will be using *object literal notation* moving forward.  
 
 #### Read
 
@@ -172,23 +167,11 @@ Object.values(car)
 Object.entries(car)
 ```
 
-### Exercise (10 min / 0:40)
+### Exercise
 
-Create a variable named `wdiStudent` and assign it to an object literal.
-
-1. Give your student at least three properties in the initial declaration.
-2. One must have a key that contains a hyphen.
-3. One must contain an array or object.
-4. Update two properties, one of which is the hyphenated.
-5. Give your student a new property using dot or bracket notation.
-6. Delete one attribute.
-7. Iterate through and print out all of the student's key-value pairs.
-
-> [Solution](https://gist.github.com/nolds9/efdb0a320e7143f42e96)
-
-### Nested Collections (5 min / 0:45)
-
-Object properties aren't limited to simple data types. We can also nest collections inside of collections.
+Create two car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add addition attributes that include at least one array and object.  
+<details>
+  <summary>Possible Solution</solution>
 
 ```js
 let car = {
@@ -212,7 +195,7 @@ let car = {
 **Q** In the above examples, how do we access...
 * "Neutral" (i.e., array value within an object)?
 * "6 horses" (i.e., object value within an object)?
-
+<details>
 
 ## Methods (10 min / 0:55)
 
