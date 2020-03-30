@@ -30,7 +30,7 @@ In programming, we need a way to contain logic and data about things in the real
 In JavaScript, **objects are collections of properties(key-value pairs)**. We can add, remove, or change these properties as we please. The simplest way to create an object is by using **object literal notation**.
 
 ```js
-let car = {
+const car = {
   make: 'Honda',
   model: 'Civic',
   year: 1997      // Generally, there's no comma after the last pair!
@@ -51,7 +51,7 @@ In the above example, the variable `car` points to an object literal. This parti
 We could store this same information in an array like this...
 
 ```js
-let car = ['Honda', 'Civic', 1997]
+const car = ['Honda', 'Civic', 1997]
 ```
 
 What advantages might there be in storing `car` as an object?
@@ -72,7 +72,7 @@ Your goal is to code an object literal:
 We already saved a sample object to a `car` variable. We did this using **object literal notation**.
 
 ```js
-let car = {
+const car = {
   make: 'Honda',
   model: 'Civic',
   year: 1997,
@@ -169,12 +169,13 @@ Object.entries(car)
 
 ### Exercise
 
-Create two car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add addition attributes that include at least one array and object.  
+Create two separate car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add addition attributes that include at least one array and object.  
+
 <details>
   <summary>Possible Solution</solution>
 
 ```js
-let car = {
+const car = {
   make: "Honda",
   model: "Civic",
   year: 1997,
@@ -195,15 +196,15 @@ let car = {
 **Q** In the above examples, how do we access...
 * "Neutral" (i.e., array value within an object)?
 * "6 horses" (i.e., object value within an object)?
-<details>
+</details>
 
-## Methods (10 min / 0:55)
+## Methods
 
 Methods are functions that are attached to some object.
 
 ```js
 // Our car now has a drive method...
-let car = {
+const car = {
   make: "Honda",
   model: "Civic",
   color: "red",
@@ -234,22 +235,17 @@ We've only scratched the surface for objects. We're going to dive much deeper in
 
 > If you're looking for a sneak peak into the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
 
-### You Do: Big Ol' Twitter Object (15 min / 1:10)
-
-> 10 minute exercise. 5 minute review.
+### You Do: Big Ol' Twitter Object
 
 As this course continues you will encounter plenty of Javascript objects in the wild. Spend **10 minutes** on the following...
 
-* Familarize yourself with the layout of [Twitter](https://twitter.com/TwitterAPI), pay particular attention to the information displayed in a tweet
 * Go to the [Big Ol' Twitter Object](https://git.generalassemb.ly/pages/dc-wdi-fundamentals/big-ol-twitter-object/) page!
 * In the console, you can examine the tweet object by typing `tweet`. This object represent this [tweet](https://twitter.com/twitterapi/status/210462857140252672) from the [Twitter API](https://twitter.com/TwitterAPI) account.
-* Answer the questions in the page! Test your answers in the console!
-
-## Break (10 min / 1:20)
+* Answer the questions on the page! Test your answers in the console!
 
 # Context
 
-## What is Context? (20 min / 1:40)
+## What is Context?
 
 In Javascript, context tells us where functions are invoked.
 
@@ -278,10 +274,10 @@ In a similar manner, we use the `this` keyword as a replacement for the subject 
 Here's an example of the most common way context is determined for a function. When a method is called on an object, that object becomes the context...
 
 ```js
-let user = {
+const user = {
   fullName: "James Reichard",
   sayName: function(){
-    alert(`My name is ${this.fullName}.`)
+    console.log(`My name is ${this.fullName}.`)
   }
 }
 user.sayName()
@@ -312,11 +308,11 @@ When in doubt, log it out.
 ### 'Getting' Properties using `this`
 
 ```js
-let user = {
+const user = {
   fullName: "James Reichard",
   favoriteFood: "Rice pudding",
   sayName: function(){
-    alert(`My name is ${this.fullName}.`)
+    console.log(`My name is ${this.fullName}.`)
   },
   sayHello: function(){
     console.log(`Hi my name is ${this.fullName} and my favorite food is ${this.favoriteFood}.`)
@@ -331,7 +327,7 @@ user.sayHello() // for this function invocation, `this` is `user`
 This feature allows not just 'getting' property info on objects, but also setting properties. Consider this example:
 
 ```js
-let user = {
+const user = {
   userName: "numbr1rawkr",
   isSignedIn: false,
   signIn: function() {
@@ -353,7 +349,7 @@ user.isSignedIn // => false
 Because we've written a method to set the `isSignedIn` property, we can use that method to provide more control. For example... what if we wanted to check a user's password before letting them sign in?
 
 ```js
-let user = {
+const user = {
   userName: "numbr1rawkr",
   password: "password1234",
   isSignedIn: false,
@@ -380,7 +376,7 @@ user.isSignedIn // => false
 We can also use `this` to reference and call other methods on the object.
 
 ```js
-let user = {
+const user = {
   userName: "numbr1rawkr",
   password: "password1234",
   isSignedIn: false,
@@ -408,7 +404,7 @@ user.isSignedIn // => false
 -
 ```
 
-## Other `this` Cases (10 min / 1:50)
+## Other `this` Cases
 
 ### Events
 
@@ -417,8 +413,8 @@ user.isSignedIn // => false
 ```
 
 ```js
-document.getElementsByTagName('button')[0].addEventListener('click', function(){
-  alert(this.innerHTML)
+document.querySelector('button').addEventListener('click', function(){
+  console.log(this.innerHTML)
 })
 ```
 
@@ -444,7 +440,7 @@ revealThis()
 ### Non-Event Callbacks
 
 ```js
-let fruits = ["apple", "banana", "cantaloupe"]
+const fruits = ["apple", "banana", "cantaloupe"]
 
 fruits.forEach(function(){
   console.log(this)  
@@ -454,12 +450,12 @@ fruits.forEach(function(){
 
 Note that it is very rare to intentionally use `this` to refer to the window object. Usually this happens when we mistakenly use this incorrectly (a very easy/common mistake for new and even experienced JS developers). You can always refer to the window by `window` so using `this` in place of window is confusing.
 
-## You Do: Write, Pair, Share (5 min / 1:55)
+## You Do: Write, Pair, Share
 
 Consider the following example...
 
 ```js
-let user = {
+const user = {
   fullName: "James Reichard",
   favoriteFoods: ["Ramen", "Capn Crunch", "Tacos"],
 
@@ -480,7 +476,7 @@ If the Array.forEach() method has not yet been introduced, do not worry.  After 
 Now what about this *slightly* modified example...
 
 ```js
-let user = {
+const user = {
   fullName: "James Reichard",
   favoriteFoods: ["Ramen", "Capn Crunch", "Tacos"],
 
@@ -518,7 +514,7 @@ Note that this issue frequently appears anytime we use a callback / anonymous fu
 One trick is to store the `this` you want in another variable, commonly named `self` or `that`.
 
 ```js
-let user = {
+const user = {
   fullName: "James Reichard",
   favoriteFoods: ["Ramen", "Cap'n Crunch", "Tacos"],
   displayFoods: function() {
@@ -570,15 +566,13 @@ repository.
 4. What is the keyword which references the context of a function/method?
 5. What is the default context for a function in the browser?
 
-## HW: Calculator
+## Homework: Calculator
 
-[Javascript Calculator](https://git.generalassemb.ly/seir-1118/js-calculator)
+[Javascript Calculator](https://git.generalassemb.ly/seir-323/js-calculator)
 
 ## Next Steps
 
 Read through the bonus section of this lesson plan, paying attention to the `bind`, `call` and `apply` methods. These are ways for you to exercise more control over and gain the ability to re-assign context.
-
-Also [take a look at this repo](https://git.generalassemb.ly/dc-wdi-fundamentals/js-context-and-this-review), which compares good and bad ways to apply context. We suggest reading up on `bind`, `call` and `apply` before doing so, however, since the examples make use of some of these methods.
 
 ## You Do: Bind, Call and Apply (Bonus)
 
@@ -589,7 +583,7 @@ These let you "force" `this` to be something specific.
 ### Bind
 
 ```js
-let user = {
+const user = {
   name: 'James Reichard',
   favoriteFoods: ['Ramen', 'Cap\'n Crunch', 'Tacos'],
   displayFoods: function() {
@@ -615,8 +609,8 @@ function sayHello() {
   console.log(`Hi! My name is ${this.name}`)
 }
 
-let person = {name: 'Manatee the Railyard Toreador'}
-let cat = {name: 'Hobbles McGillicudy'}
+const person = {name: 'Manatee the Railyard Toreador'}
+const cat = {name: 'Hobbles McGillicudy'}
 sayHello.call(person)
 sayHello.call(cat)
 ```
@@ -628,10 +622,10 @@ function sayHello(favColor) {
   console.log(`Hi! My name is ${this.name} and I like ${favColor}`)
 }
 
-let person = {name: 'Manatee the Railyard Toreador'}
-let cat = {name: 'Hobbles McGillicudy'}
-sayHello.call(person, 'blue')
-sayHello.call(cat, 'peachpuff')
+const person2 = {name: 'Manatee the Railyard Toreador'}
+const cat2 = {name: 'Hobbles McGillicudy'}
+sayHello.call(person2, 'blue')
+sayHello.call(cat2, 'peachpuff')
 ```
 
 [More information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
