@@ -169,7 +169,7 @@ Object.entries(car)
 
 ### Exercise
 
-Create two separate car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add addition attributes that include at least one array and object.  
+Create two separate car objects and assign each to its own variable.  The car object should at least have a make, model and year.   Add additional attributes that include at least one array and object.  
 
 <details>
   <summary>Possible Solution</summary>
