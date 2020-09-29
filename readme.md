@@ -83,15 +83,6 @@ const car = {
 };
 ```
 
-Another way is to use the `Object.create()` method.
-
-```js
-const car = Object.create({});
-
-// then you can populate the object
-(car.make = 'Honda'), (car.model = 'Civic'), (car.year = 1997);
-```
-
 #### Read
 
 To access object properties, we use either dot `.property` or bracket `['property']` notation.
