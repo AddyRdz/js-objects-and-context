@@ -19,8 +19,6 @@
 
 This lesson will cover two concepts that are crucial for encapsulation and abstraction in Javascript: Objects and Context. Objects allow us to box up multiple functions and data under a single variable. Context determines which object "owns" a function while it's being invoked.
 
-Today we will explore why we might want to use objects in our code, and learn how to create, access, and alter objects. With context, we'll see how all function invocations are always attached to an object which we can access via the keyword `this`. We'll learn how to use `this` on our own objects and how to alter the context of `this`.
-
 ## Objects in Review
 
 Let's visit a site most of you will probably be familiar with, [Amazon](https://www.amazon.com). If we type something to search for, you may notice all the results have similar properties. Things like, _price_, _title_, _reviews_, _Prime eligibility_ and a _picture_.
@@ -208,9 +206,7 @@ car.gps('neverland');
 
 Checkout our awesome souped-up car! With methods as part of our Javascript toolbox, we now have an interface with which we can interact with our objects.
 
-We've only scratched the surface for objects. We're going to dive much deeper into them later on in the course.
-
-> If you're looking for a sneak peak into the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
+> We've only scratched the surface for objects. We'll dive a bit deeper into them later.  If you're looking for more on the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
 
 # Context
 
@@ -259,21 +255,6 @@ user.sayName();
 
 </details>
 
-### A Rule of Thumb
-
-In general, `this` is probably the **parent** or enclosing item (item being function or object)
-
-- You're in an event listener function, in which case `this` is the thing where the event originated (such as the button that was clicked).
-- You're in another callback function, in which case `this` is probably the `window`.
-- You've used `.bind(newThisValue)` to change the context manually.
-
-If you're ever unsure what `this` is at a given point in your code:
-
-```js
-console.log(this);
-```
-
-When in doubt, log it out.
 
 ### 'Getting' Properties using `this`
 
@@ -388,20 +369,54 @@ function revealThis() {
 revealThis();
 ```
 
-## You do: Object practice
+### A Rule of Thumb
 
-Work through the prompts in the [ JavaScript Objects Practice
-](https://git.generalassemb.ly/dc-wdi-fundamentals/js-objects-practice)
-repository.
+In general, `this` is probably the **parent** or enclosing item (item being function or object)
 
-## Review Questions
+Some exceptions are:
+- In an event listener function, `this` is the thing where the event originated (such as the button that was clicked).
+- In another callback function, in which case `this` is probably the `window`.
+- When `.bind()` is used to change the context manually.
 
+When in doubt, log it out...
+
+```js
+console.log(this);
+```
+
+## We Do: Review
+
+```js
+const ship = {
+  name: 'Millennium Falcon',
+  speed: 11,
+  crew: ['Han Solo', 'Chewbacca'],
+  passengers: ['Leia'],
+  famous: true,
+  heardOfIt: function() {
+    console.log("You've never heard of the millennium falcon!?");
+    this.famous = false;
+  },
+  addPassenger: function(passenger) {
+    this.passengers.push(passenger);
+  },
+  removePassenger: function(passenger) {
+    let index = this.passengers.indexOf(passenger);
+    this.passengers.splice(index, 1);
+  }
+};
+```
+1. How do we access the ship's name?
+1. How can we change the speed to 13?
+1. What code would we run to add a passenger "Luke"?
+1. How can you remove the passenger "Leia"?
+1. What code adds a new property called "missions" and set it equal to an empty object?
+1. How do we add "smuggled cargo" to the missions with 'prisoners', 'stolen goods', 'unobtanium' as a value?
+1. What code deletes the speed property?
 1. What's difference between a property and a method?
 1. How can I view all of an object's properties?
 1. What is the keyword which references the context of a function/method?
 1. What is the default context for a function in the browser?
-
-
 
 ## Bonus
 
