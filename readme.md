@@ -212,14 +212,6 @@ We've only scratched the surface for objects. We're going to dive much deeper in
 
 > If you're looking for a sneak peak into the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
 
-### You Do: Big Ol' Twitter Object
-
-As this course continues you will encounter plenty of Javascript objects in the wild. Spend **10 minutes** on the following...
-
-- Go to the [Big Ol' Twitter Object](https://git.generalassemb.ly/pages/dc-wdi-fundamentals/big-ol-twitter-object/) page!
-- In the console, you can examine the tweet object by typing `tweet`. This object represent this [tweet](https://twitter.com/twitterapi/status/210462857140252672) from the [Twitter API](https://twitter.com/TwitterAPI) account.
-- Answer the questions on the page! Test your answers in the console!
-
 # Context
 
 ## What is Context?
@@ -271,7 +263,7 @@ user.sayName();
 
 In general, `this` is probably the **parent** or enclosing item (item being function or object)
 
-- You're in an event listener function, in which case `this` is the thing that was clicked on.
+- You're in an event listener function, in which case `this` is the thing where the event originated (such as the button that was clicked).
 - You're in another callback function, in which case `this` is probably the `window`.
 - You've used `.bind(newThisValue)` to change the context manually.
 
@@ -409,9 +401,7 @@ repository.
 1. What is the keyword which references the context of a function/method?
 1. What is the default context for a function in the browser?
 
-## Homework: Calculator
 
-[Javascript Calculator](https://git.generalassemb.ly/seir-323/js-calculator)
 
 ## Bonus
 
