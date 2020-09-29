@@ -86,7 +86,7 @@ const car = {
 Another way is to use the `Object.create()` method.
 
 ```js
-let car = Object.create();
+const car = Object.create({});
 
 // then you can populate the object
 (car.make = 'Honda'), (car.model = 'Civic'), (car.year = 1997);
