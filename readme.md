@@ -55,7 +55,7 @@ const car = ['Honda', 'Civic', 1997];
 
 What advantages might there be in storing `car` as an object?
 
-### You Do: Model an SEI Course
+## You Do: Model an SEI Course
 
 Your goal is to code an object literal:
 
@@ -64,9 +64,9 @@ Your goal is to code an object literal:
 - **Bonus - One key value pair contains an array**
 - **Double bonus - one key value pair contains another object**
 
-### Interacting with Objects
+## Interacting with Objects
 
-#### Create
+### Create
 
 We already saved a sample object to a `car` variable. We did this using **object literal notation**.
 
@@ -81,7 +81,7 @@ const car = {
 };
 ```
 
-#### Read
+### Read
 
 To access object properties, we use either dot `.property` or bracket `['property']` notation.
 
@@ -103,7 +103,7 @@ function(carProp) {
 
 Dot notation is much more common than bracket notation. Why might that be?
 
-#### Update
+### Update
 
 Call on the object property just like we did when reading it, and use the assignment operator `=` followed by its new value.
 
@@ -122,7 +122,7 @@ car.smell = 'Leathery Boot';
 console.log(car);
 ```
 
-#### Delete
+### Delete
 
 If you want to delete an object property entirely, use the `delete` keyword.
 
@@ -159,7 +159,7 @@ Object.values(car);
 Object.entries(car);
 ```
 
-### Lab
+## You Do:
 
 Practice CRUD by performing the following operations:
 
@@ -173,7 +173,7 @@ Practice CRUD by performing the following operations:
 - Write code that console logs `I have a pet named:` followed by the name of the first pet in your array. If you do not have any pets, write code that uses an if statement to confirm that you have no pets in your array and console.logs: `I have no pets`.
 - Delete the pets property from the person array and console log the person object to confirm that the property no longer exists.
 
-## Methods
+# Methods
 
 Methods are functions that are attached to some object.
 
@@ -208,9 +208,9 @@ Checkout our awesome souped-up car! With methods as part of our Javascript toolb
 
 > We've only scratched the surface for objects. We'll dive a bit deeper into them later.  If you're looking for more on the power of objects and functions, we recommend reading [The Secret Life of JS Objects](http://eloquentjavascript.net/06_object.html) chapter in Eloquent JS
 
-# Context
+## Context
 
-## What is Context?
+### What is Context?
 
 In Javascript, context tells us where functions are invoked.
 
@@ -406,6 +406,7 @@ const ship = {
   }
 };
 ```
+## Review 
 1. How do we access the ship's name?
 1. How can we change the speed to 13?
 1. What code would we run to add a passenger "Luke"?
@@ -418,7 +419,7 @@ const ship = {
 1. What is the keyword which references the context of a function/method?
 1. What is the default context for a function in the browser?
 
-## Bonus
+## Hungry for More?
 
 Read through the bonus section of this lesson plan, paying attention to the `bind`, `call` and `apply` methods. These are ways for you to exercise more control over and gain the ability to re-assign context.
 
